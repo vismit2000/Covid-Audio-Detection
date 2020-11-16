@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
-from predict_class import *
+from predict_class import predict
 import warnings
 
 warnings.filterwarnings("ignore")
