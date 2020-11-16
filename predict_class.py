@@ -1,6 +1,7 @@
 import os
 import pickle
 import librosa
+import pathlib
 import itertools
 import numpy as np
 import pandas as pd
@@ -75,7 +76,11 @@ def load(audio_path, sampling_rate, time_per_sample):
     """
 
     # Standard sampling rate is 44100 Hz.
-    waveform, sampling_rate = librosa.load(audio_path, sr=sampling_rate)
+
+    path = pathlib.Path(audio_path, sr=sampling_rate)
+    path = os.fspath(path)
+
+    waveform, sampling_rate = librosa.load(path)
 
     # Looping back if longer, clipping if shorter.
     waveform = np.resize(waveform, int(time_per_sample * sampling_rate))
