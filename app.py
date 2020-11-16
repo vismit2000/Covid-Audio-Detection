@@ -17,7 +17,7 @@ def upload_file():
 		audio_file.save("static/"+audio_file.filename)
 
 		audio_type = 'cough'
-		is_cough_symptom = 1
+		is_cough_symptom = 0
 	
 		prediction = predict("static/"+audio_file.filename,  audio_type, is_cough_symptom)
 		
